@@ -37,7 +37,26 @@ void linkedListDriver() {
 }
 
 void doublyLinkedListDriver() {
-  return;
+  MyDoublyLinkedList dll;
+
+  dll.printList();
+  dll.addNode(2,1);
+  dll.addNode(4,1);
+  dll.addNode(8,1);
+  dll.addNode(5,2);
+  dll.addNode(10,4);
+  dll.addNode(999,999);
+  dll.printList();
+
+  std::cout << '\n';
+  dll.printList();
+  dll.deleteNode(1);
+  dll.printList();
+  dll.deleteNode(4);
+  dll.deleteNode(999);
+  dll.printList();
+  dll.reverse();
+  dll.printList();
 }
 
 int main() {
