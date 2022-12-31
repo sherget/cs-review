@@ -3,3 +3,6 @@ This is where I review and/or learn basic computer science fundamentals and prac
 
 Note for Emacs - Execute the following command in the datastructures/ dir for working clang format etc.:
 cmake -H. -BDebug -DCMAKE_BUILD_TllllYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES
+
+Also to make clang format work:
+clang-format -style=llvm -dump-config > .clang-format

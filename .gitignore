@@ -34,3 +34,5 @@
 
 datastructures/Debug
 .ccls-cache
+datastructures/.projectile
+datastructures/.clang-format
