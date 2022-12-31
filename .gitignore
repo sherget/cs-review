@@ -36,3 +36,6 @@ datastructures/Debug
 .ccls-cache
 datastructures/.projectile
 datastructures/.clang-format
+datastructures/CMakeLists.txt
+datastructures/compile_commands.json
+datastructures/compile_flags.txt
