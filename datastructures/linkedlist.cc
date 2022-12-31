@@ -95,8 +95,35 @@ class MyLinkedList {
             }
             std::cout << std::endl;
         }
-        // reverse(){}
-        // reverseRecursive(Node *previous) {}
+
+        void reverse() {
+            Node *current = head;
+            Node *prev = NULL;
+            while (current != NULL) {
+                Node *next = current->next;
+                current->next = prev;
+                prev = current;
+                current = next;
+            }
+            head = prev;
+        }
+
+        void reverseRecursive(Node *prev) {
+            // If we hit the end of the list set the end as new head
+            if (prev->next == NULL) {
+               head = prev;
+               return;
+            }
+
+            // Recursively go through the list
+            reverseRecursive(prev->next);
+
+            // Save the next node in a temporary variable and set its next address to the previous node
+            // then set the link of the prev to NULL to avoid a infinite loop
+            Node *nextNode = prev->next;
+            nextNode->next = prev;
+            prev->next = NULL;
+        }
 };
 
 int main() {
@@ -114,12 +141,20 @@ int main() {
     ll.printList();
 
     std::cout << '\n';
+    ll.printList();
     ll.deleteNode(3);
     ll.printList();
     ll.deleteNode(1);
     ll.printList();
     ll.deleteNode(1);
     ll.deleteNode(20); // Error out of range
+    ll.printList();
+
+    std::cout << '\n';
+    ll.printList();
+    ll.reverse();
+    ll.printList();
+    ll.reverseRecursive(ll.head);
     ll.printList();
 
     return 0;
