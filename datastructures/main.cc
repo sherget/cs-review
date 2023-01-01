@@ -3,6 +3,7 @@
 #include "mylinkedlist.h"
 #include "mydoublylinkedlist.h"
 #include "myarraystack.h"
+#include "mylinkedliststack.h"
 #include <iostream>
 
 void linkedListDriver() {
@@ -83,10 +84,29 @@ void arrayStackDriver() {
   s.push(4096); // overflow -> array gets copied over to a larger array
 }
 
+void linkedListStackDriver() {
+  MyLinkedListStack s;
+  s.printStack(); // Error empty list
+  s.pop(); // Error can't pop from empty list
+  s.push(2);
+  s.push(4);
+  s.push(8);
+  s.push(16);
+  s.printStack();
+  std::cout << s.top() << std::endl;
+  s.pop();
+  std::cout << s.top() << std::endl;
+  s.pop();
+  s.pop();
+  s.pop();
+  s.printStack();
+}
+
 int main() {
   // linkedListDriver();
   // doublyLinkedListDriver();
-  arrayStackDriver();
+  // arrayStackDriver();
+  linkedListStackDriver();
 
   return 0;
 }
