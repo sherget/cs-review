@@ -2,6 +2,7 @@
 
 #include "mylinkedlist.h"
 #include "mydoublylinkedlist.h"
+#include "myarraystack.h"
 #include <iostream>
 
 void linkedListDriver() {
@@ -59,9 +60,33 @@ void doublyLinkedListDriver() {
   dll.printList();
 }
 
+void arrayStackDriver() {
+  MyArrayStack s;
+  s.printStack(); // Error empty list
+  s.pop(); // Error can't pop from empty list
+  s.push(2);
+  s.push(4);
+  s.push(8);
+  s.push(16);
+  s.push(32);
+  s.push(64);
+  s.push(128);
+  s.push(256);
+  s.push(512);
+  s.push(1024);
+  s.printStack();
+  std::cout << s.top() << std::endl;
+  s.pop();
+  std::cout << s.top() << std::endl;
+  s.push(1024);
+  s.push(2048);
+  s.push(4096); // overflow -> array gets copied over to a larger array
+}
+
 int main() {
   // linkedListDriver();
-  doublyLinkedListDriver();
+  // doublyLinkedListDriver();
+  arrayStackDriver();
 
   return 0;
 }
